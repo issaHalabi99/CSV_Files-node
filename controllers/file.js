@@ -91,9 +91,9 @@ export async function deleteFile(req, res, next) {
       error.statusCode = 404;
       throw error;
     }
-    clearImage(file.fileUrl);
+    clearFile(file.fileUrl);
     await File.findByIdAndDelete(fileId);
-    res.status(200).json({ message: "Deleted post." });
+    res.status(200).json({ message: "Deleted file." });
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -102,7 +102,7 @@ export async function deleteFile(req, res, next) {
   }
 }
 
-const clearImage = (filePath) => {
+const clearFile = (filePath) => {
   filePath = path.join(__dirname, "..", filePath);
   fs.unlink(filePath, (err) => (err ? console.log(err) : null));
 };

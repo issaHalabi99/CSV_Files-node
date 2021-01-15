@@ -53,7 +53,8 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://issaHalabi:4772425224@cluster0.ftog9.mongodb.net/fileDB?retryWrites=true&w=majority",
+    //add your cluster link
+  "",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
